@@ -32,7 +32,6 @@ function Location(city, geoData) {
 }
 
 function handleLocation(request, response) {
-
   try {
     const geoData = require('./data/location.json');
     const city = request.query.city;
@@ -42,7 +41,23 @@ function handleLocation(request, response) {
     } catch(error) {
       response.status(500).send('this shit ain\'t working');
     }
+};
+//constructor function for weather
+function Weather(day) {
+  this.forcast = day.weather.description;
+  this.time = day.valid_date;
 }
+
+function handleWeather(request, response) {
+  try {
+    const rawWeatherData = require('./data/weather.json');
+    const weatherData = new weatherData(rawWeatherData);
+    
+    response.send(weatherData);
+  } catch(error) {
+    response.status(500).send('Shucks, it a\'int working');
+  }
+};
 
 app.get('/bad-request', (request, response) => {
   throw new Error('bad request!');
