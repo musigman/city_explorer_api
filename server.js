@@ -1,12 +1,17 @@
 'use strict';
+
+// Load Environment Variables from the .env file
 require('dotenv').config();
 
+// Application Dependencies
 const express = require('express');
+const superagent = require('superagent');
 const cors = require('cors');
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT;
 
+// Application Setup
 app.listen(PORT, ()=> {
   console.log(`listening on port: ${PORT}`);
 });
@@ -20,8 +25,9 @@ app.get('/', (request, response) => {
 app.get('/some-path', (request, response) => {
   response.json({ message: 'Hello from json land' });
 });
-
+// route definitions
 app.get('/location', handleLocation);
+app.get('/weather', handleWeather);
 
 // constructor function for set of aggregated data
 function Location(city, geoData) {
@@ -44,16 +50,25 @@ function handleLocation(request, response) {
 };
 //constructor function for weather
 function Weather(day) {
-  this.forcast = day.weather.description;
+  this.forecast = day.weather.description;
   this.time = day.valid_date;
 }
 
 function handleWeather(request, response) {
   try {
     const rawWeatherData = require('./data/weather.json');
-    const weatherData = new weatherData(rawWeatherData);
+    const weatherArray = rawWeatherData.data;
+    const newArray = [];
+    for (let i = 0; i < weatherArray.length; i++){
+      var day = weatherArray[i];
+      var currentDay = new Weather(day);
+      newArray.push(currentDay);
+
+
+    }
+   
     
-    response.send(weatherData);
+    response.send(newArray);
   } catch(error) {
     response.status(500).send('Shucks, it a\'int working');
   }
