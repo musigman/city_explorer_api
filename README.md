@@ -1,20 +1,31 @@
 # Lab: 06 - Node, npm, and Express
 
 
+# Lab - 06
 
-Number and name of feature: 1________________________________
+Number and name of feature: 1_, 2_______________________________
 
 Estimate of time needed to complete: 2 hours_____
 
 Start time: 1:30pm_____
 
+Finish time: 10:30pm_____
+
+Actual time needed to complete: 4 hours_____
+
+# Lab - 07
+
+Number and name of feature: __1______________________________
+
+Estimate of time needed to complete: _2____
+
+Start time: _1:30pm____
+
 Finish time: _____
 
 Actual time needed to complete: _____
 
-# Lab - 06
-
-**Author**: Your Name Goes Here
+**Author**: Keith Musig
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview

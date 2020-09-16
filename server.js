@@ -45,7 +45,7 @@ function handleLocation(request, response) {
     // const locationData = new Location(city, geoData);
     response.send(locationData);
     } catch(error) {
-      response.status(500).send('this shit ain\'t working');
+      response.status(500).send('this ain\'t working');
     }
 };
 //constructor function for weather
@@ -55,22 +55,28 @@ function Weather(day) {
 }
 
 function handleWeather(request, response) {
+  var lat = request.query.latitude;
+  var lon = request.query.longitude;
+  let key = process.env.WEATHER_API_KEY
+  const url =`http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${key}`;
+  superagent.get(url)
+    .then(data => {
+      console.log(data.body.data);
+      var weatherUpdate = data.body.data;
+      let handleWeather = weatherUpdate.map(weather => {
+      
+        return new Weather(weather);
+         
+      })
+      response.send(handleWeather);
+    })  
   try {
     const rawWeatherData = require('./data/weather.json');
     const weatherArray = rawWeatherData.data;
-    const newArray = [];
-    for (let i = 0; i < weatherArray.length; i++){
-      var day = weatherArray[i];
-      var currentDay = new Weather(day);
-      newArray.push(currentDay);
-
-
-    }
    
     
-    response.send(newArray);
   } catch(error) {
-    response.status(500).send('Shucks, it a\'int working');
+    response.status(500).send('Shucks, it ain\'t working');
   }
 };
 
