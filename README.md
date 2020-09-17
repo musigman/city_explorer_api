@@ -21,9 +21,21 @@ Estimate of time needed to complete: _2____
 
 Start time: _1:30pm____
 
+Finish time: 10:30pm_____
+
+Actual time needed to complete: 5 hours_____
+
+# Lab - 08
+
+Number and name of feature: __1______________________________
+
+Estimate of time needed to complete: _2____
+
+Start time: _3:30pm____
+
 Finish time: _____
 
-Actual time needed to complete: _____
+Actual time needed to complete: 5 hours_____
 
 **Author**: Keith Musig
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
