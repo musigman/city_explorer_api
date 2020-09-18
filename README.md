@@ -33,9 +33,21 @@ Estimate of time needed to complete: _2____
 
 Start time: _3:30pm____
 
-Finish time: _____
+Finish time: _10:30pm____
 
 Actual time needed to complete: 5 hours_____
+
+# Lab - 08 redux
+
+Number and name of feature: __2, 3______________________________
+
+Estimate of time needed to complete: _4 hours____
+
+Start time: _3:30pm____
+
+Finish time: _9:30pm____
+
+Actual time needed to complete: 6 hours_____
 
 **Author**: Keith Musig
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
