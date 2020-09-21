@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS city_data;
+DROP TABLE IF EXISTS weather;
 
 CREATE TABLE city_data (
   id SERIAL PRIMARY KEY,
@@ -8,4 +9,12 @@ CREATE TABLE city_data (
   latitude decimal,
   longitude decimal
 );
-INSERT INTO locations (search_query) VALUES ('West Jordan');
+
+
+CREATE TABLE weather(
+  id SERIAL PRIMARY KEY,
+  formatted_query VARCHAR(255),
+  weather_data_slice TEXT,
+  time_of_day VARCHAR(255)
+);
+
